@@ -232,7 +232,7 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"occurrence_date": {
 				"type": "date",
-				"format": "YYYY-MM-dd||YYYY||YYYY-MM"
+				"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY"
 			},
 			"verbatim_elevation": {"type" : "string"},
 			"minimum_elevation": {"type" : "integer"},
