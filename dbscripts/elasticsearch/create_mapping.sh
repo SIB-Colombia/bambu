@@ -734,7 +734,7 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"publication_date": {
 						"type": "date",
-						"format": "YYYY-MM-dd||YYYY||YYYY-MM"
+						"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY"
 					},
 					"gbif_package_id" :  {
 						"type": "string",

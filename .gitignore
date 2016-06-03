@@ -18,3 +18,5 @@ npm-debug.log
 node_modules
 server_old
 public
+
+logstash_import_final.conf
