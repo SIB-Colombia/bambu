@@ -109,6 +109,60 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					}
 				}
 			},
+			"dwca_id":  {
+				"type": "string",
+				"index": "analyzed",
+				"fields": {
+					"untouched" : {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"exactWords": {
+						"type": "string",
+						"analyzer": "string_lowercase"
+					},
+					"spanish": {
+						"type": "string",
+						"analyzer": "spanish_search_analyzer"
+					}
+				}
+			},
+			"sourcefileid":  {
+				"type": "string",
+				"index": "analyzed",
+				"fields": {
+					"untouched" : {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"exactWords": {
+						"type": "string",
+						"analyzer": "string_lowercase"
+					},
+					"spanish": {
+						"type": "string",
+						"analyzer": "spanish_search_analyzer"
+					}
+				}
+			},
+			"occurrenceid":  {
+				"type": "string",
+				"index": "analyzed",
+				"fields": {
+					"untouched" : {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"exactWords": {
+						"type": "string",
+						"analyzer": "string_lowercase"
+					},
+					"spanish": {
+						"type": "string",
+						"analyzer": "spanish_search_analyzer"
+					}
+				}
+			},
 			"canonical":  {
 				"type": "string",
 				"index": "analyzed",

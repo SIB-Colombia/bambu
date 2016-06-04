@@ -1,4 +1,7 @@
 SELECT  public.occurrence.auto_id AS id, 
+				public.occurrence.dwca_id,
+				public.occurrence.sourcefileid,
+				public.occurrence.occurrenceid,
 				public.occurrence.scientificname AS canonical, 
 				public.occurrence.taxonrank as taxon_rank, 
 				public.occurrence.decimallatitude as latitude, 
