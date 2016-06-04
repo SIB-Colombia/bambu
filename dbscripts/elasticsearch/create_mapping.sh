@@ -218,19 +218,35 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					}
 				}
 			},
-			"year": {
+			"year_start": {
 				"type": "date",
 				"format": "YYYY"
 			},
-			"month": {
+			"month_start": {
 				"type": "date",
 				"format": "MM"
 			},
-			"day": {
+			"day_start": {
 				"type": "date",
 				"format": "dd"
 			},
-			"occurrence_date": {
+			"year_end": {
+				"type": "date",
+				"format": "YYYY"
+			},
+			"month_end": {
+				"type": "date",
+				"format": "MM"
+			},
+			"day_end": {
+				"type": "date",
+				"format": "dd"
+			},
+			"occurrence_date_start": {
+				"type": "date",
+				"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY"
+			},
+			"occurrence_date_end": {
 				"type": "date",
 				"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY"
 			},
