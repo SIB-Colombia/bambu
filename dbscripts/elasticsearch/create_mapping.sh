@@ -242,11 +242,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"type": "date",
 				"format": "dd"
 			},
-			"occurrence_date_start": {
+			"eventdate_start": {
 				"type": "date",
 				"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY"
 			},
-			"occurrence_date_end": {
+			"eventdate_end": {
 				"type": "date",
 				"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY"
 			},
