@@ -27,7 +27,7 @@ db( λ => {
 	// api router
 	app.use('/api', api());
 
-	app.server.listen(process.env.PORT || 8080);
+	app.server.listen(process.env.PORT || 5000);
 
 	console.log(`Started on port ${app.server.address().port}`);
 });
