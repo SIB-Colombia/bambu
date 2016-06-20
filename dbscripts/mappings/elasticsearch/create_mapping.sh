@@ -878,6 +878,24 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 							}
 						}
 					},
+          "keyword_thesaurus" :  {
+            "type": "string",
+            "index": "analyzed",
+            "fields" : {
+              "untouched": {
+                "type": "string",
+                "index": "not_analyzed"
+              },
+              "exactWords": {
+                "type": "string",
+                "analyzer": "string_lowercase"
+              },
+              "spanish": {
+                "type": "string",
+                "analyzer": "spanish_search_analyzer"
+              }
+            }
+          },
 					"hierarchy_level" :  {
 						"type": "string",
 						"index": "analyzed",
