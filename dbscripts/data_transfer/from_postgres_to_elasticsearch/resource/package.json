@@ -1,0 +1,18 @@
+{
+  "name": "data_resourse_transfer",
+  "version": "0.0.1",
+  "description": "Data resourse transfer from canadensys postgres structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Valentina Grajales",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.5.0",
+    "elasticsearch": "^10.0.1",
+    "json2xls": "^0.1.1",
+    "lodash": "^3.10.1",
+    "pg": "^4.4.3"
+  }
+}
