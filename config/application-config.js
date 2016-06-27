@@ -1,7 +1,7 @@
 // Dependencies
 import convict from 'convict';
 import util from 'util';
-import debug from 'debug';
+const debug = require('debug')('dataportal-api:configuration');
 
 export const config = convict({
   env: {
@@ -34,7 +34,7 @@ export const config = convict({
     elasticSearch: {
       url: {
         doc: 'ElasticSearch url to connect to (including db reference)',
-        default: 'localhost:9200',
+        default: ['localhost:9200'],
         env: 'ELASTICSEARCH_URL'
       }
     }
@@ -55,3 +55,5 @@ debug(util.inspect(process.env, {
 
 // perform the config validation
 config.validate();
+
+debug('Configuration file loaded successfully.');

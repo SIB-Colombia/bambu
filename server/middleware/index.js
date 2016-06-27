@@ -1,9 +1,9 @@
-import { Router } from 'express';
+import { Router as router } from 'express';
 
-export default function() {
-	var routes = Router();
+export default function () {
+  const routes = router();
 
-	// add middleware here
+  // add middleware here
 
-	return routes;
+  return routes;
 }
