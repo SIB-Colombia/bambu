@@ -4,6 +4,10 @@ import util from 'util';
 const debug = require('debug')('dataportal-api:configuration');
 
 export const config = convict({
+  appRoot: {
+    doc: 'Application root folder.',
+    default: `${__dirname}/..`
+  },
   env: {
     doc: 'Application environment.',
     format: ['production', 'development'],
@@ -34,7 +38,7 @@ export const config = convict({
     elasticSearch: {
       url: {
         doc: 'ElasticSearch url to connect to (including db reference)',
-        default: ['localhost:9200'],
+        default: ['localhost:9400'],
         env: 'ELASTICSEARCH_URL'
       }
     }

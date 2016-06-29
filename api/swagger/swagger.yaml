@@ -1,0 +1,67 @@
+swagger: "2.0"
+info:
+  version: "1.5"
+  title: SiB Colombia - Dataportal API
+  contact:
+    name: SiB Colombia Developer Team
+    url: http://www.sibcolombia.net
+    email: lgrajales@humboldt.org.co
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+# during dev, should point to your local machine
+host: localhost:8000
+# basePath prefixes all resource paths
+basePath: /api/v1.5
+#
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /occurrence/count:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: occurrences
+    get:
+      description: Returns count of occurrences according to query parameters
+      # used as the method name of the controller
+      operationId: occurrenceCount
+      parameters:
+        - name: isGeoreferenced
+          in: query
+          description: True or false if you wants only georeferenced occurrences
+          required: false
+          type: boolean
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/ResultResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  ResultResponse:
+    required:
+      - count
+    properties:
+      count:
+        type: integer
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string

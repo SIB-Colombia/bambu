@@ -20,11 +20,13 @@
     "convict": "^1.4.0",
     "cors": "^2.7.1",
     "debug": "^2.2.0",
+    "elasticsearch": "^11.0.1",
     "express": "^4.14.0",
     "resource-router-middleware": "^0.6.0",
     "swagger-express-mw": "^0.6.0",
     "util": "^0.10.3",
-    "validator": "^5.4.0"
+    "validator": "^5.4.0",
+    "winston": "^2.2.0"
   },
   "bugs": {
     "url": ""

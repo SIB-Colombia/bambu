@@ -4,11 +4,16 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import db from './db';
 import middleware from './middleware';
-import api from './api';
+// import api from './api';
 import { config } from '../config/application-config';
 import { logger } from './log';
+import SwaggerExpress from 'swagger-express-mw';
 
 const app = express();
+const swaggerConfig = {
+  appRoot: `${__dirname}/..`
+};
+
 app.server = http.createServer(app);
 
 // 3rd party middleware
@@ -26,11 +31,18 @@ db(λ => {
   app.use(middleware());
 
   // api router
-  app.use('/api', api());
+  // app.use('/api', api());
 
-  app.server.listen(config.get('server.port') || 5000);
+  SwaggerExpress.create(swaggerConfig, (err, swaggerExpress) => {
+    if (err) { throw err; }
 
-  logger.info(`Started on port ${app.server.address().port}`);
+    // install middleware
+    swaggerExpress.register(app);
+
+    app.server.listen(config.get('server.port') || 5000);
+
+    logger.info(`Started on port ${app.server.address().port}`);
+  });
 });
 
 export default app;
