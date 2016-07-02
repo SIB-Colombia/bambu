@@ -25,6 +25,44 @@ consumes:
 produces:
   - application/json
 paths:
+  /registry/department:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: registries
+    get:
+      description: Returns dataportal departments list
+      # used as the method name of the controller
+      operationId: departmentList
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/department'
+        # responses may fall through to errors
+        "400":
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /registry/county:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: registries
+    get:
+      description: Returns dataportal counties list
+      # used as the method name of the controller
+      operationId: countyList
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/county'
+        # responses may fall through to errors
+        "400":
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /occurrence/count:
     # binds a127 app logic to a route
     x-swagger-router-controller: occurrences
@@ -45,7 +83,7 @@ paths:
             # a pointer to a definition
             $ref: "#/definitions/ResultResponse"
         # responses may fall through to errors
-        default:
+        "400":
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
@@ -53,6 +91,64 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
+  county:
+    required:
+      - country_code
+      - department_name
+      - country_name
+      - iso_county_code
+      - county_name
+      - iso_department_code
+    properties:
+      country_code:
+        type: string
+      department_name:
+        type: string
+      country_name:
+        type: string
+      iso_county_code:
+        type: string
+      county_name:
+        type: string
+      iso_department_code:
+        type: string
+  department:
+    required:
+      - country_code
+      - lng
+      - department_name
+      - country_name
+      - min_latitude
+      - max_longitude
+      - iso_department_code
+      - lat
+      - max_latitude
+      - min_longitude
+    properties:
+      country_code:
+        type: string
+      lng:
+        type: string
+      department_name:
+        type: string
+      country_name:
+        type: string
+      min_latitude:
+        type: number
+        format: double
+      max_longitude:
+        type: number
+        format: double
+      iso_department_code:
+        type: string
+      lat:
+        type: string
+      max_latitude:
+        type: number
+        format: double
+      min_longitude:
+        type: number
+        format: double
   ResultResponse:
     required:
       - count
