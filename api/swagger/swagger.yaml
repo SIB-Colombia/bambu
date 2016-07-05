@@ -102,6 +102,14 @@ paths:
           type: array
           items:
             type: string
+        - name: facetLimit
+          in: query
+          description: "Used in combination with the facet parameter. Set facetLimit=# to show the first # aggregations."
+          required: false
+          type: integer
+          default: 10
+          maximum: 1000
+          minimum: 1
       responses:
         "200":
           description: Success

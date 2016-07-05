@@ -77,7 +77,7 @@ function search(req, res) {
         query.aggs.scientificName = {
           terms: {
             field: 'canonical.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -86,7 +86,7 @@ function search(req, res) {
         query.aggs.kingdom = {
           terms: {
             field: 'taxonomy.kingdom_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -95,7 +95,7 @@ function search(req, res) {
         query.aggs.phylum = {
           terms: {
             field: 'taxonomy.phylum_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -104,7 +104,7 @@ function search(req, res) {
         query.aggs.class = {
           terms: {
             field: 'taxonomy.class_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -113,7 +113,7 @@ function search(req, res) {
         query.aggs.order = {
           terms: {
             field: 'taxonomy.order_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -122,7 +122,7 @@ function search(req, res) {
         query.aggs.family = {
           terms: {
             field: 'taxonomy.family_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -131,7 +131,7 @@ function search(req, res) {
         query.aggs.genus = {
           terms: {
             field: 'taxonomy.genus_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -140,7 +140,7 @@ function search(req, res) {
         query.aggs.specie = {
           terms: {
             field: 'taxonomy.species_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -149,7 +149,7 @@ function search(req, res) {
         query.aggs.specific_epithet = {
           terms: {
             field: 'taxonomy.specific_epithet.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -158,7 +158,7 @@ function search(req, res) {
         query.aggs.infraspecific_epithet = {
           terms: {
             field: 'taxonomy.infraspecific_epithet.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -167,7 +167,7 @@ function search(req, res) {
         query.aggs.country = {
           terms: {
             field: 'country_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -176,7 +176,7 @@ function search(req, res) {
         query.aggs.department = {
           terms: {
             field: 'department_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -185,7 +185,7 @@ function search(req, res) {
         query.aggs.county = {
           terms: {
             field: 'county_name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           },
           aggs: {
@@ -203,7 +203,7 @@ function search(req, res) {
         query.aggs.habitat = {
           terms: {
             field: 'habitat.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -212,7 +212,7 @@ function search(req, res) {
         query.aggs.basis_of_record = {
           terms: {
             field: 'basis_of_record.name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -221,7 +221,7 @@ function search(req, res) {
         query.aggs.collection_name = {
           terms: {
             field: 'collection.name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -230,7 +230,7 @@ function search(req, res) {
         query.aggs.provider_name = {
           terms: {
             field: 'provider.name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
@@ -239,7 +239,7 @@ function search(req, res) {
         query.aggs.resource_name = {
           terms: {
             field: 'resource.name.untouched',
-            size: 10,
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }
         };
