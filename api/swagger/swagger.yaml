@@ -97,9 +97,11 @@ paths:
       parameters:
         - name: facet
           in: query
-          description: True or false if you wants only georeferenced occurrences
+          description: "Name of element or elements used for aggregation, valid values: scientificName, kingdom, phylum, class, order, family, genus, specie, specific_epithet, infraspecific_epithet, country, department, county, habitat, basis_of_record, collection_name, provider_name, resource_name"
           required: false
-          type: string
+          type: array
+          items:
+            type: string
       responses:
         "200":
           description: Success
@@ -126,6 +128,10 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Occurrence'
+      facets:
+        type: array
+        items:
+          $ref: '#/definitions/Facet'
   Occurrence:
     required:
       - id
@@ -222,6 +228,26 @@ definitions:
       lon:
         type: number
         format: double
+  Facet:
+    type: object
+    required:
+      - field
+      - counts
+    properties:
+      field:
+        type: string
+      counts:
+        type: array
+        items:
+          type: object
+          required:
+            - name
+            - count
+          properties:
+            name:
+              type: string
+            count:
+              type: integer
   taxonomy:
     type: object
     properties:
