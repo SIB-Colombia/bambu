@@ -87,10 +87,239 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /occurrence/search:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: occurrences
+    get:
+      description: Returns count of occurrences according to query parameters
+      # used as the method name of the controller
+      operationId: search
+      parameters:
+        - name: facet
+          in: query
+          description: True or false if you wants only georeferenced occurrences
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/OccurrenceSearchResults"
+        # responses may fall through to errors
+        "400":
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
+  OccurrenceSearchResults:
+    required:
+      - count
+      - results
+    properties:
+      count:
+        type: integer
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/Occurrence'
+  Occurrence:
+    required:
+      - id
+      - dwca_id
+      - sourcefileid
+      - occurrenceid
+      - canonical
+    properties:
+      id:
+        type: integer
+      dwca_id:
+        type: string
+      sourcefileid:
+        type: string
+      occurrenceid:
+        type: string
+      canonical:
+        type: string
+      taxon_rank:
+        type: string
+      country_name:
+        type: string
+      county_name:
+        type: string
+      locality:
+        type: string
+      year_start:
+        type: integer
+        minimum: 0000
+        maximum: 9999
+      month_start:
+        type: integer
+        minimum: 01
+        maximum: 12
+      day_start:
+        type: integer
+        minimum: 00
+        maximum: 31
+      year_end:
+        type: integer
+        minimum: 0000
+        maximum: 9999
+      month_end:
+        type: integer
+        minimum: 01
+        maximum: 12
+      day_end:
+        type: integer
+        minimum: 00
+        maximum: 31
+      eventdate_start:
+        type: string
+        pattern: '^(\d{4}-\d{2}-\d{2})$'
+      eventdate_end:
+        type: string
+        pattern: '^(\d{4}-\d{2}-\d{2})$'
+      verbatim_elevation:
+        type: string
+      minimum_elevation:
+        type: integer
+      maximum_elevation:
+        type: integer
+      department_name:
+        type: string
+      recorded_by:
+        type: string
+      habitat:
+        type: string
+      location:
+        $ref: '#/definitions/location'
+      taxonomy:
+        $ref: '#/definitions/taxonomy'
+      provider:
+        $ref: '#/definitions/provider'
+      resource:
+        $ref: '#/definitions/resource'
+      institution:
+        $ref: '#/definitions/institution'
+      collection:
+        $ref: '#/definitions/collection'
+      catalog:
+        $ref: '#/definitions/catalog'
+      basis_of_record:
+        $ref: '#/definitions/basis_of_record'
+  location:
+    type: object
+    required:
+      - lat
+      - lon
+    properties:
+      lat:
+        type: number
+        format: double
+      lon:
+        type: number
+        format: double
+  taxonomy:
+    type: object
+    properties:
+      kingdom_name:
+        type: string
+      phylum_name:
+        type: string
+      class_name:
+        type: string
+      order_name:
+        type: string
+      family_name:
+        type: string
+      genus_name:
+        type: string
+      species_name:
+        type: string
+      specific_epithet:
+        type: string
+      infraspecific_epithet:
+        type: string
+  provider:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      description:
+        type: string
+      address:
+        type: string
+      city:
+        type: string
+      website_url:
+        type: string
+      logo_url:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string
+  resource:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      intellectual_rights:
+        type: string
+      citation:
+        type: string
+      logo_url:
+        type: string
+      publication_date:
+        type: string
+        pattern: '^(\d{4}-\d{2}-\d{2})$'
+      gbif_package_id:
+        type: string
+      alternate_identifier:
+        type: string
+      language:
+        type: string
+      keyword:
+        type: string
+      keyword_thesaurus:
+        type: string
+      hierarchy_level:
+        type: string
+  institution:
+    type: object
+    properties:
+      code:
+        type: string
+  collection:
+    type: object
+    properties:
+      id:
+        type: string
+      code:
+        type: string
+      name:
+        type: string
+  catalog:
+    type: object
+    properties:
+      number:
+        type: string
+  basis_of_record:
+    type: object
+    properties:
+      name:
+        type: string
   county:
     required:
       - country_code
