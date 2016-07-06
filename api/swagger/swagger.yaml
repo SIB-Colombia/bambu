@@ -2,6 +2,8 @@ swagger: "2.0"
 info:
   version: "1.5"
   title: SiB Colombia - Dataportal API
+  description: API for SiB Colombia Dataportal. This API is used as a backend for SiB Colombia's web sites and online services.
+  termsOfService: http://swagger.io/terms/
   contact:
     name: SiB Colombia Developer Team
     url: http://www.sibcolombia.net
@@ -13,7 +15,11 @@ info:
 host: localhost:8000
 # basePath prefixes all resource paths
 basePath: /api/v1.5
-#
+tags:
+  - name: registry
+    description: This API works against the SiB Colombia Registry, which makes all registered Datasets and Organizations discoverable.
+  - name: occurrence
+    description: This API works against the SiB Colombia Occurrence data store, which handles occurrence records and makes them available through the web service.
 schemes:
   # tip: remove http to make production-grade
   - http
@@ -30,6 +36,8 @@ paths:
     x-swagger-router-controller: registries
     get:
       description: Returns dataportal departments list
+      tags:
+        - registry
       # used as the method name of the controller
       operationId: departmentList
       responses:
@@ -49,6 +57,8 @@ paths:
     x-swagger-router-controller: registries
     get:
       description: Returns dataportal counties list
+      tags:
+        - registry
       # used as the method name of the controller
       operationId: countyList
       responses:
@@ -68,6 +78,8 @@ paths:
     x-swagger-router-controller: occurrences
     get:
       description: Returns count of occurrences according to query parameters
+      tags:
+        - occurrence
       # used as the method name of the controller
       operationId: occurrenceCount
       parameters:
@@ -92,9 +104,94 @@ paths:
     x-swagger-router-controller: occurrences
     get:
       description: Returns count of occurrences according to query parameters
+      tags:
+        - occurrence
       # used as the method name of the controller
       operationId: search
       parameters:
+        - name: q
+          in: query
+          description: Simple search parameter. The value for this parameter can be a simple word or a phrase. See http://lucene.apache.org/core/6_1_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description
+          required: false
+          type: string
+        - name: kingdomName
+          in: query
+          description: Kingdom name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: phylumName
+          in: query
+          description: Phylum name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: className
+          in: query
+          description: Class name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: orderName
+          in: query
+          description: Order name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: familyName
+          in: query
+          description: Family name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: genusName
+          in: query
+          description: Genus name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: speciesName
+          in: query
+          description: Species name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: specificEpithetName
+          in: query
+          description: Specific epithet name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: infraspecificEpithetName
+          in: query
+          description: Infraspecific epithet name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: size
+          in: query
+          description: The maximum number of results to return. This can't be greater than 1000.
+          required: false
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 1000
+        - name: page
+          in: query
+          description: The initial offset of page query, this parameter combined with size parameter will determine the results.
+          required: false
+          type: integer
+          default: 0
+          minimum: 0
         - name: facet
           in: query
           description: "Name of element or elements used for aggregation, valid values: scientificName, kingdom, phylum, class, order, family, genus, specie, specific_epithet, infraspecific_epithet, country, department, county, habitat, basis_of_record, collection_name, provider_name, resource_name"
@@ -127,9 +224,15 @@ paths:
 definitions:
   OccurrenceSearchResults:
     required:
+      - offset
+      - size
       - count
       - results
     properties:
+      offset:
+        type: integer
+      size:
+        type: integer
       count:
         type: integer
       results:
@@ -423,4 +526,6 @@ definitions:
       - message
     properties:
       message:
+        type: string
+      description:
         type: string

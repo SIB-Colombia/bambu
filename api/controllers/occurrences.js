@@ -65,10 +65,187 @@ function occurrenceCount(req, res) {
   Param facet: type string, name of element used for aggregation
  */
 function search(req, res) {
+  let countAndQueries = 1;
+
+  const from = ((req.swagger.params.page.value) ? req.swagger.params.page.value : 0)
+    * ((req.swagger.params.size.value) ? req.swagger.params.size.value : 10);
   // Root query for ES
   const query = {
+    from,
+    size: (req.swagger.params.size.value) ? req.swagger.params.size.value : 10,
+    query: {
+      bool: {
+        must: [
+          {
+            query_string: {
+              query: '*'
+            }
+          }
+        ]
+      }
+    },
     aggs: {}
   };
+
+  // If query general condition
+  if (req.swagger.params.q.value) {
+    query.query.bool.must[0].query_string.query = req.swagger.params.q.value;
+  }
+
+  // If wildcard queries
+  if (req.swagger.params.kingdomName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.kingdomName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'taxonomy.kingdom_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.phylumName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.phylumName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'taxonomy.phylum_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.className.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.className.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'taxonomy.class_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.orderName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.orderName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'taxonomy.order_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.familyName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.familyName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'taxonomy.family_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.genusName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.genusName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'taxonomy.genus_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.speciesName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.speciesName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'taxonomy.species_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.specificEpithetName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.specificEpithetName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'taxonomy.specific_epithet.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.infraspecificEpithetName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.infraspecificEpithetName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'taxonomy.infraspecific_epithet.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
 
   // If facets query param construct the query for ES
   if (req.swagger.params.facet.value) {
@@ -254,36 +431,41 @@ function search(req, res) {
     body: query
   }, (err, response) => {
     if (err) {
-      res.status(400).json({ message: 'Error searching occurrence data.' });
-    }
+      res.status(400).json({
+        message: 'Error searching occurrence data.',
+        description: err.message
+      });
+    } else {
+      // Create facets and results array
+      const facets = [];
+      const results = [];
 
-    // Create facets and results array
-    const facets = [];
-    const results = [];
-
-    // Fill if aggregations exits
-    if (response.aggregations) {
-      Object.keys(response.aggregations).forEach(key => {
-        facets.push({
-          field: key,
-          counts: response.aggregations[key].buckets
+      // Fill if aggregations exits
+      if (response.aggregations) {
+        Object.keys(response.aggregations).forEach(key => {
+          facets.push({
+            field: key,
+            counts: response.aggregations[key].buckets
+          });
         });
+      }
+
+      // Fill if results exits
+      if (response.hits.hits) {
+        response.hits.hits.forEach(occurrence => {
+          results.push(occurrence._source);
+        });
+      }
+
+      // this sends back a JSON response
+      res.json({
+        offset: (req.swagger.params.page.value) ? req.swagger.params.page.value : 0,
+        size: (req.swagger.params.size.value) ? req.swagger.params.size.value : 10,
+        count: response.hits.total,
+        facets,
+        results
       });
     }
-
-    // Fill if results exits
-    if (response.hits.hits) {
-      response.hits.hits.forEach(occurrence => {
-        results.push(occurrence._source);
-      });
-    }
-
-    // this sends back a JSON response
-    res.json({
-      count: response.hits.total,
-      facets,
-      results
-    });
   });
 }
 

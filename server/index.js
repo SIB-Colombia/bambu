@@ -8,6 +8,7 @@ import middleware from './middleware';
 import { config } from '../config/application-config';
 import { logger } from './log';
 import SwaggerExpress from 'swagger-express-mw';
+import swaggerUiMiddleware from 'swagger-ui-middleware';
 
 const app = express();
 const swaggerConfig = {
@@ -38,6 +39,10 @@ db(λ => {
 
     // install middleware
     swaggerExpress.register(app);
+
+    swaggerUiMiddleware.hostUI(app, { path: '/api-doc', overrides: __dirname+'/swagger-ui' });
+
+    app.use(express.static('api/swagger'));
 
     app.server.listen(config.get('server.port') || 5000);
 

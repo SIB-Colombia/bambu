@@ -25,6 +25,8 @@
     "jsonfile": "^2.3.1",
     "resource-router-middleware": "^0.6.0",
     "swagger-express-mw": "^0.6.0",
+    "swagger-ui": "^2.1.4",
+    "swagger-ui-middleware": "^1.0.0",
     "util": "^0.10.3",
     "validator": "^5.4.0",
     "winston": "^2.2.0"
