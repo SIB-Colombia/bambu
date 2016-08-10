@@ -1,7 +1,9 @@
 // Dependencies
 import convict from 'convict';
 import util from 'util';
+
 const debug = require('debug')('dataportal-api:configuration');
+const path = require('path');
 
 export const config = convict({
   appRoot: {
@@ -30,20 +32,20 @@ export const config = convict({
     port: {
       doc: 'The server port to bind.',
       format: 'port',
-      default: 8000,
-      env: 'PORT'
+      default: 5000,
+      env: 'BAMBU_API_PORT'
     }
   },
   database: {
     elasticSearch: {
       url: {
         doc: 'ElasticSearch url to connect to (including db reference)',
-        default: ['localhost:9400'],
+        default: ['localhost:9200'],
         env: 'ELASTICSEARCH_URL'
       }
     }
   }
-});
+}).loadFile(path.join(__dirname, 'config.json')).validate();
 
 // catch all error without handler
 process.on('uncaughtException', error => {

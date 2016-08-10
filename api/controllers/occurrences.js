@@ -93,6 +93,23 @@ function search(req, res) {
   }
 
   // If wildcard queries
+  if (req.swagger.params.scientificName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.scientificName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'canonical.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
   if (req.swagger.params.kingdomName.value) {
     query.query.bool.must[countAndQueries] = {
       bool: {
@@ -240,6 +257,159 @@ function search(req, res) {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.infraspecific_epithet.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.providerName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.providerName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'provider.name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.resourceName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.resourceName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'resource.name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.collectionName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.collectionName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'collection.name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.institutionCode.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.institutionCode.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'institution.code.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.countryName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.countryName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'country_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.departmentName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.departmentName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'department_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.countyName.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.countyName.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'county_name.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.habitat.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.habitat.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'habitat.exactWords': `*${value}*`
+        }
+      };
+      counter++;
+    });
+    countAndQueries++;
+  }
+  if (req.swagger.params.basisOfRecord.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    req.swagger.params.basisOfRecord.value.forEach(value => {
+      query.query.bool.must[countAndQueries].bool.should[counter] = {
+        wildcard: {
+          'basis_of_record.name.exactWords': `*${value}*`
         }
       };
       counter++;
@@ -416,6 +586,15 @@ function search(req, res) {
         query.aggs.resource_name = {
           terms: {
             field: 'resource.name.untouched',
+            size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
+            shard_size: 100000
+          }
+        };
+      }
+      if (value === 'institution_code') {
+        query.aggs.institution_code = {
+          terms: {
+            field: 'institution.code.untouched',
             size: (req.swagger.params.facetLimit.value) ? req.swagger.params.facetLimit.value : 10,
             shard_size: 100000
           }

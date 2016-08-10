@@ -12,7 +12,7 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 # during dev, should point to your local machine
-host: localhost:8000
+host: localhost:5000
 # basePath prefixes all resource paths
 basePath: /api/v1.5
 tags:
@@ -103,7 +103,7 @@ paths:
     # binds a127 app logic to a route
     x-swagger-router-controller: occurrences
     get:
-      description: Returns count of occurrences according to query parameters
+      description: Returns occurrences according to query parameters
       tags:
         - occurrence
       # used as the method name of the controller
@@ -114,6 +114,13 @@ paths:
           description: Simple search parameter. The value for this parameter can be a simple word or a phrase. See http://lucene.apache.org/core/6_1_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description
           required: false
           type: string
+        - name: scientificName
+          in: query
+          description: Scientific name.
+          required: false
+          type: array
+          items:
+            type: string
         - name: kingdomName
           in: query
           description: Kingdom name.
@@ -177,6 +184,69 @@ paths:
           type: array
           items:
             type: string
+        - name: providerName
+          in: query
+          description: Provider name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: resourceName
+          in: query
+          description: Resource name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: collectionName
+          in: query
+          description: Collection name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: institutionCode
+          in: query
+          description: Institution code.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: countryName
+          in: query
+          description: Country name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: departmentName
+          in: query
+          description: Department name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: countyName
+          in: query
+          description: County name.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: habitat
+          in: query
+          description: Habitat.
+          required: false
+          type: array
+          items:
+            type: string
+        - name: basisOfRecord
+          in: query
+          description: Basis of record.
+          required: false
+          type: array
+          items:
+            type: string
         - name: size
           in: query
           description: The maximum number of results to return. This can't be greater than 1000.
@@ -194,7 +264,7 @@ paths:
           minimum: 0
         - name: facet
           in: query
-          description: "Name of element or elements used for aggregation, valid values: scientificName, kingdom, phylum, class, order, family, genus, specie, specific_epithet, infraspecific_epithet, country, department, county, habitat, basis_of_record, collection_name, provider_name, resource_name"
+          description: "Name of element or elements used for aggregation, valid values: scientificName, kingdom, phylum, class, order, family, genus, specie, specific_epithet, infraspecific_epithet, country, department, county, habitat, basis_of_record, collection_name, provider_name, resource_name, institution_code"
           required: false
           type: array
           items:
