@@ -15,8 +15,6 @@ results
 _dev
 bower_components
 
-config/config.json
-
 npm-debug.log
 node_modules
 server_old
