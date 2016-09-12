@@ -2,6 +2,7 @@ import http from 'http';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import compression from 'compression';
 import db from './db';
 import middleware from './middleware';
 // import api from './api';
@@ -11,6 +12,7 @@ import SwaggerExpress from 'swagger-express-mw';
 import swaggerUiMiddleware from 'swagger-ui-middleware';
 
 const app = express();
+app.use(compression());
 const swaggerConfig = {
   appRoot: `${__dirname}/..`
 };
