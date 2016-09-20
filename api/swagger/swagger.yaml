@@ -506,6 +506,54 @@ paths:
           type: array
           items:
             type: string
+        - name: elevationEqual
+          in: query
+          description: "Occurrence elevation. This query parameter searchs for elevation equal to a number."
+          required: false
+          type: array
+          items:
+            type: number
+            format: double
+        - name: elevationGreaterOrEqualTo
+          in: query
+          description: "Occurrence elevation. This query parameter searchs for elevation equal or greater than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: elevationLessOrEqualTo
+          in: query
+          description: "Occurrence elevation. This query parameter searchs for elevation equal or less than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: depthEqual
+          in: query
+          description: "Occurrence depth. This query parameter searchs for depth equal to a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: depthGreaterOrEqualTo
+          in: query
+          description: "Occurrence depth. This query parameter searchs for depth equal or greater than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: depthLessOrEqualTo
+          in: query
+          description: "Occurrence depth. This query parameter searchs for depth equal or less than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
         - name: precision
           in: query
           description: "Grid hash precision. Valid values. 1: 5,009.4km x 4,992.6km, 2: 1,252.3km x 624.1km, 3: 156.5km x 156km, 4: 39.1km x 19.5km, 5: 4.9km x 4.9km, 6: 1.2km x 609.4m"
@@ -697,6 +745,54 @@ paths:
           type: array
           items:
             type: string
+        - name: elevationEqual
+          in: query
+          description: "Occurrence elevation. This query parameter searchs for elevation equal to a number."
+          required: false
+          type: array
+          items:
+            type: number
+            format: double
+        - name: elevationGreaterOrEqualTo
+          in: query
+          description: "Occurrence elevation. This query parameter searchs for elevation equal or greater than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: elevationLessOrEqualTo
+          in: query
+          description: "Occurrence elevation. This query parameter searchs for elevation equal or less than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: depthEqual
+          in: query
+          description: "Occurrence depth. This query parameter searchs for depth equal to a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: depthGreaterOrEqualTo
+          in: query
+          description: "Occurrence depth. This query parameter searchs for depth equal or greater than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: depthLessOrEqualTo
+          in: query
+          description: "Occurrence depth. This query parameter searchs for depth equal or less than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
         - name: z
           in: path
           description: Vector tile Z location
