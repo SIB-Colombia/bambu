@@ -1,7 +1,7 @@
 {
   database: {
     elasticSearch: {
-      url: ['192.168.11.100:9200']
+      url: ['localhost:9200']
     }
   }
 }

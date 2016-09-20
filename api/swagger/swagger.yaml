@@ -247,6 +247,54 @@ paths:
           type: array
           items:
             type: string
+        - name: elevationEqual
+          in: query
+          description: "Occurrence elevation. This query parameter searchs for elevation equal to a number."
+          required: false
+          type: array
+          items:
+            type: number
+            format: double
+        - name: elevationGreaterOrEqualTo
+          in: query
+          description: "Occurrence elevation. This query parameter searchs for elevation equal or greater than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: elevationLessOrEqualTo
+          in: query
+          description: "Occurrence elevation. This query parameter searchs for elevation equal or less than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: depthEqual
+          in: query
+          description: "Occurrence depth. This query parameter searchs for depth equal to a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: depthGreaterOrEqualTo
+          in: query
+          description: "Occurrence depth. This query parameter searchs for depth equal or greater than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
+        - name: depthLessOrEqualTo
+          in: query
+          description: "Occurrence depth. This query parameter searchs for depth equal or less than a number."
+          type: array
+          items:
+            type: number
+            format: double
+          required: false
         - name: latitudeTopLeft
           in: query
           description: "Data located around square defined by top left point and bottom right point. Use latitudeTopLeft for the latitude of the top left point."

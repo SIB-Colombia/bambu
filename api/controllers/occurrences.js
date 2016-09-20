@@ -123,15 +123,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.scientificName.value.forEach(value => {
+    req.swagger.params.scientificName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'canonical.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.kingdomName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -140,15 +140,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.kingdomName.value.forEach(value => {
+    req.swagger.params.kingdomName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.kingdom_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.phylumName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -157,15 +157,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.phylumName.value.forEach(value => {
+    req.swagger.params.phylumName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.phylum_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.className.value) {
     query.query.bool.must[countAndQueries] = {
@@ -174,15 +174,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.className.value.forEach(value => {
+    req.swagger.params.className.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.class_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.orderName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -191,15 +191,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.orderName.value.forEach(value => {
+    req.swagger.params.orderName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.order_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.familyName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -208,15 +208,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.familyName.value.forEach(value => {
+    req.swagger.params.familyName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.family_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.genusName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -225,15 +225,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.genusName.value.forEach(value => {
+    req.swagger.params.genusName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.genus_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.speciesName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -242,15 +242,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.speciesName.value.forEach(value => {
+    req.swagger.params.speciesName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.species_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.specificEpithetName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -259,15 +259,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.specificEpithetName.value.forEach(value => {
+    req.swagger.params.specificEpithetName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.specific_epithet.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.infraspecificEpithetName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -276,15 +276,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.infraspecificEpithetName.value.forEach(value => {
+    req.swagger.params.infraspecificEpithetName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.infraspecific_epithet.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.providerName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -293,15 +293,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.providerName.value.forEach(value => {
+    req.swagger.params.providerName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'provider.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.resourceName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -310,15 +310,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.resourceName.value.forEach(value => {
+    req.swagger.params.resourceName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'resource.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.collectionName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -327,15 +327,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.collectionName.value.forEach(value => {
+    req.swagger.params.collectionName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'collection.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.institutionCode.value) {
     query.query.bool.must[countAndQueries] = {
@@ -344,15 +344,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.institutionCode.value.forEach(value => {
+    req.swagger.params.institutionCode.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'institution.code.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.countryName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -361,15 +361,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.countryName.value.forEach(value => {
+    req.swagger.params.countryName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'country_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.departmentName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -378,15 +378,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.departmentName.value.forEach(value => {
+    req.swagger.params.departmentName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'department_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.countyName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -395,15 +395,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.countyName.value.forEach(value => {
+    req.swagger.params.countyName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'county_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.habitat.value) {
     query.query.bool.must[countAndQueries] = {
@@ -412,15 +412,15 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.habitat.value.forEach(value => {
+    req.swagger.params.habitat.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'habitat.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.basisOfRecord.value) {
     query.query.bool.must[countAndQueries] = {
@@ -429,20 +429,132 @@ function search(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.basisOfRecord.value.forEach(value => {
+    req.swagger.params.basisOfRecord.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'basis_of_record.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
+  }
+  // Query related with elevation
+  if (req.swagger.params.elevationEqual.value || req.swagger.params.elevationGreaterOrEqualTo.value || req.swagger.params.elevationLessOrEqualTo.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    if (req.swagger.params.elevationEqual.value) {
+      req.swagger.params.elevationEqual.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              term: {
+                minimum_elevation: parseFloat(value)
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.elevationGreaterOrEqualTo.value) {
+      req.swagger.params.elevationGreaterOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  gte: parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.elevationLessOrEqualTo.value) {
+      req.swagger.params.elevationLessOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  lte: parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    countAndQueries += 1;
+  }
+  // Query related with depth
+  if (req.swagger.params.depthEqual.value || req.swagger.params.depthGreaterOrEqualTo.value || req.swagger.params.depthLessOrEqualTo.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    if (req.swagger.params.depthEqual.value) {
+      req.swagger.params.depthEqual.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              term: {
+                minimum_elevation: -parseFloat(value)
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.depthGreaterOrEqualTo.value) {
+      req.swagger.params.depthGreaterOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  lte: -parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.depthLessOrEqualTo.value) {
+      req.swagger.params.depthLessOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  gte: -parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    countAndQueries += 1;
   }
 
   // If facets query param construct the query for ES
   if (req.swagger.params.facet.value) {
-    req.swagger.params.facet.value.forEach(value => {
+    req.swagger.params.facet.value.forEach((value) => {
       if (value === 'scientificName') {
         query.aggs.scientificName = {
           terms: {
@@ -644,7 +756,7 @@ function search(req, res) {
 
       // Fill if aggregations exits
       if (response.aggregations) {
-        Object.keys(response.aggregations).forEach(key => {
+        Object.keys(response.aggregations).forEach((key) => {
           facets.push({
             field: key,
             counts: response.aggregations[key].buckets
@@ -654,7 +766,7 @@ function search(req, res) {
 
       // Fill if results exits
       if (response.hits.hits) {
-        response.hits.hits.forEach(occurrence => {
+        response.hits.hits.forEach((occurrence) => {
           results.push(occurrence._source);
         });
       }
@@ -716,15 +828,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.scientificName.value.forEach(value => {
+    req.swagger.params.scientificName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'canonical.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.kingdomName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -733,15 +845,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.kingdomName.value.forEach(value => {
+    req.swagger.params.kingdomName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.kingdom_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.phylumName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -750,15 +862,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.phylumName.value.forEach(value => {
+    req.swagger.params.phylumName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.phylum_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.className.value) {
     query.query.bool.must[countAndQueries] = {
@@ -767,15 +879,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.className.value.forEach(value => {
+    req.swagger.params.className.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.class_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.orderName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -784,15 +896,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.orderName.value.forEach(value => {
+    req.swagger.params.orderName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.order_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.familyName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -801,15 +913,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.familyName.value.forEach(value => {
+    req.swagger.params.familyName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.family_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.genusName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -818,15 +930,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.genusName.value.forEach(value => {
+    req.swagger.params.genusName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.genus_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.speciesName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -835,15 +947,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.speciesName.value.forEach(value => {
+    req.swagger.params.speciesName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.species_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.specificEpithetName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -852,15 +964,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.specificEpithetName.value.forEach(value => {
+    req.swagger.params.specificEpithetName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.specific_epithet.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.infraspecificEpithetName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -869,15 +981,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.infraspecificEpithetName.value.forEach(value => {
+    req.swagger.params.infraspecificEpithetName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.infraspecific_epithet.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.providerName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -886,15 +998,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.providerName.value.forEach(value => {
+    req.swagger.params.providerName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'provider.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.resourceName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -903,15 +1015,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.resourceName.value.forEach(value => {
+    req.swagger.params.resourceName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'resource.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.collectionName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -920,15 +1032,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.collectionName.value.forEach(value => {
+    req.swagger.params.collectionName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'collection.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.institutionCode.value) {
     query.query.bool.must[countAndQueries] = {
@@ -937,15 +1049,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.institutionCode.value.forEach(value => {
+    req.swagger.params.institutionCode.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'institution.code.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.countryName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -954,15 +1066,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.countryName.value.forEach(value => {
+    req.swagger.params.countryName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'country_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.departmentName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -971,15 +1083,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.departmentName.value.forEach(value => {
+    req.swagger.params.departmentName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'department_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.countyName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -988,15 +1100,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.countyName.value.forEach(value => {
+    req.swagger.params.countyName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'county_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.habitat.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1005,15 +1117,15 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.habitat.value.forEach(value => {
+    req.swagger.params.habitat.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'habitat.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.basisOfRecord.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1022,15 +1134,127 @@ function gridSearch(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.basisOfRecord.value.forEach(value => {
+    req.swagger.params.basisOfRecord.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'basis_of_record.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
+  }
+  // Query related with elevation
+  if (req.swagger.params.elevationEqual.value || req.swagger.params.elevationGreaterOrEqualTo.value || req.swagger.params.elevationLessOrEqualTo.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    if (req.swagger.params.elevationEqual.value) {
+      req.swagger.params.elevationEqual.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              term: {
+                minimum_elevation: parseFloat(value)
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.elevationGreaterOrEqualTo.value) {
+      req.swagger.params.elevationGreaterOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  gte: parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.elevationLessOrEqualTo.value) {
+      req.swagger.params.elevationLessOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  lte: parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    countAndQueries += 1;
+  }
+  // Query related with depth
+  if (req.swagger.params.depthEqual.value || req.swagger.params.depthGreaterOrEqualTo.value || req.swagger.params.depthLessOrEqualTo.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    if (req.swagger.params.depthEqual.value) {
+      req.swagger.params.depthEqual.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              term: {
+                minimum_elevation: -parseFloat(value)
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.depthGreaterOrEqualTo.value) {
+      req.swagger.params.depthGreaterOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  lte: -parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.depthLessOrEqualTo.value) {
+      req.swagger.params.depthLessOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  gte: -parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    countAndQueries += 1;
   }
 
   client.search({
@@ -1064,7 +1288,7 @@ function gridSearch(req, res) {
           logValueHigher = Math.log10(higher);
         }
 
-        Object.keys(occurrenceGeoHashGrid.buckets).forEach(key => {
+        Object.keys(occurrenceGeoHashGrid.buckets).forEach((key) => {
           const bounds = Geohash.bounds(occurrenceGeoHashGrid.buckets[key].key);
 
           let alpha = 0;
@@ -1226,15 +1450,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.scientificName.value.forEach(value => {
+    req.swagger.params.scientificName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'canonical.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.kingdomName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1243,15 +1467,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.kingdomName.value.forEach(value => {
+    req.swagger.params.kingdomName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.kingdom_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.phylumName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1260,15 +1484,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.phylumName.value.forEach(value => {
+    req.swagger.params.phylumName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.phylum_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.className.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1277,15 +1501,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.className.value.forEach(value => {
+    req.swagger.params.className.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.class_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.orderName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1294,15 +1518,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.orderName.value.forEach(value => {
+    req.swagger.params.orderName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.order_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.familyName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1311,15 +1535,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.familyName.value.forEach(value => {
+    req.swagger.params.familyName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.family_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.genusName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1328,15 +1552,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.genusName.value.forEach(value => {
+    req.swagger.params.genusName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.genus_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.speciesName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1345,15 +1569,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.speciesName.value.forEach(value => {
+    req.swagger.params.speciesName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.species_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.specificEpithetName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1362,15 +1586,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.specificEpithetName.value.forEach(value => {
+    req.swagger.params.specificEpithetName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.specific_epithet.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.infraspecificEpithetName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1379,15 +1603,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.infraspecificEpithetName.value.forEach(value => {
+    req.swagger.params.infraspecificEpithetName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'taxonomy.infraspecific_epithet.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.providerName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1396,15 +1620,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.providerName.value.forEach(value => {
+    req.swagger.params.providerName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'provider.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.resourceName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1413,15 +1637,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.resourceName.value.forEach(value => {
+    req.swagger.params.resourceName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'resource.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.collectionName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1430,15 +1654,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.collectionName.value.forEach(value => {
+    req.swagger.params.collectionName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'collection.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.institutionCode.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1447,15 +1671,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.institutionCode.value.forEach(value => {
+    req.swagger.params.institutionCode.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'institution.code.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.countryName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1464,15 +1688,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.countryName.value.forEach(value => {
+    req.swagger.params.countryName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'country_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.departmentName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1481,15 +1705,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.departmentName.value.forEach(value => {
+    req.swagger.params.departmentName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'department_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.countyName.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1498,15 +1722,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.countyName.value.forEach(value => {
+    req.swagger.params.countyName.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'county_name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.habitat.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1515,15 +1739,15 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.habitat.value.forEach(value => {
+    req.swagger.params.habitat.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'habitat.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
   }
   if (req.swagger.params.basisOfRecord.value) {
     query.query.bool.must[countAndQueries] = {
@@ -1532,15 +1756,127 @@ function gridSearchPbf(req, res) {
       }
     };
     let counter = 0;
-    req.swagger.params.basisOfRecord.value.forEach(value => {
+    req.swagger.params.basisOfRecord.value.forEach((value) => {
       query.query.bool.must[countAndQueries].bool.should[counter] = {
         wildcard: {
           'basis_of_record.name.exactWords': `*${value.toLowerCase()}*`
         }
       };
-      counter++;
+      counter += 1;
     });
-    countAndQueries++;
+    countAndQueries += 1;
+  }
+  // Query related with elevation
+  if (req.swagger.params.elevationEqual.value || req.swagger.params.elevationGreaterOrEqualTo.value || req.swagger.params.elevationLessOrEqualTo.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    if (req.swagger.params.elevationEqual.value) {
+      req.swagger.params.elevationEqual.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              term: {
+                minimum_elevation: parseFloat(value)
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.elevationGreaterOrEqualTo.value) {
+      req.swagger.params.elevationGreaterOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  gte: parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.elevationLessOrEqualTo.value) {
+      req.swagger.params.elevationLessOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  lte: parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    countAndQueries += 1;
+  }
+  // Query related with depth
+  if (req.swagger.params.depthEqual.value || req.swagger.params.depthGreaterOrEqualTo.value || req.swagger.params.depthLessOrEqualTo.value) {
+    query.query.bool.must[countAndQueries] = {
+      bool: {
+        should: []
+      }
+    };
+    let counter = 0;
+    if (req.swagger.params.depthEqual.value) {
+      req.swagger.params.depthEqual.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              term: {
+                minimum_elevation: -parseFloat(value)
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.depthGreaterOrEqualTo.value) {
+      req.swagger.params.depthGreaterOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  lte: -parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    if (req.swagger.params.depthLessOrEqualTo.value) {
+      req.swagger.params.depthLessOrEqualTo.value.forEach((value) => {
+        query.query.bool.must[countAndQueries].bool.should[counter] = {
+          constant_score: {
+            filter: {
+              range: {
+                minimum_elevation: {
+                  gte: -parseFloat(value)
+                }
+              }
+            }
+          }
+        };
+        counter += 1;
+      });
+    }
+    countAndQueries += 1;
   }
 
   client.search({
@@ -1574,7 +1910,7 @@ function gridSearchPbf(req, res) {
           logValueHigher = Math.log10(higher);
         }
 
-        Object.keys(occurrenceGeoHashGrid.buckets).forEach(key => {
+        Object.keys(occurrenceGeoHashGrid.buckets).forEach((key) => {
           const bounds = Geohash.bounds(occurrenceGeoHashGrid.buckets[key].key);
 
           let alpha = 0;
