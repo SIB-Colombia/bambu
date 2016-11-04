@@ -200,11 +200,7 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				}
 			},
 			"location" : {
-				"type" : "geo_point",
-				"lat_lon": true,
-				"geohash": true,
-				"geohash_prefix": true,
-				"geohash_precision": 6
+				"type" : "geo_point"
 			},
 			"country_name": {
 				"type": "string",
