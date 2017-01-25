@@ -15,9 +15,9 @@ var clientElastic = new elasticsearch.Client({
 var client = new pg.Client(conString);
 
 function fixDate(date) {
-  var day = new Date(date).getDate();
-  var month = new Date(date).getMonth();
-  var year = new Date(date).getFullYear();
+  var day = new Date(date).getUTCDate();
+  var month = new Date(date).getUTCMonth()+1;
+  var year = new Date(date).getUTCFullYear();
 
   if(day < 1) {
     day = 1;
