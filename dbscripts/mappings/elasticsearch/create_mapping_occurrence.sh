@@ -96,105 +96,105 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
   "occurrence": {
     "properties": {
       "id": {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields" : {
 					"untouched" : {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					}
 				}
 			},
 			"dwca_id":  {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields": {
 					"untouched" : {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					}
 				}
 			},
 			"sourcefileid":  {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields": {
 					"untouched" : {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					}
 				}
 			},
 			"occurrenceid":  {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields": {
 					"untouched" : {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					}
 				}
 			},
 			"canonical":  {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields": {
 					"untouched" : {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					}
 				}
 			},
 			"taxon_rank":  {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields": {
 					"untouched" : {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					}
 				}
@@ -203,73 +203,67 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"type" : "geo_point"
 			},
 			"country_name": {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields" : {
 					"untouched": {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					},
 					"shingles": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "my_shingle_analyzer"
-					},
-          "keyword": {
-            "type": "keyword"
-          }
+					}
 				}
 			},
 			"county_name": {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields" : {
 					"untouched": {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					},
 					"shingles": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "my_shingle_analyzer"
-					},
-          "keyword": {
-            "type": "keyword"
-          }
+					}
 				}
 			},
 			"locality" :  {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields" : {
 					"untouched": {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					},
 					"shingles": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "my_shingle_analyzer"
 					}
 				}
@@ -300,80 +294,77 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"eventdate_start": {
 				"type": "date",
-				"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY"
+				"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY||date_hour_minute_second_millis||date_time"
 			},
 			"eventdate_end": {
 				"type": "date",
-				"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY"
+				"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY||date_hour_minute_second_millis||date_time"
 			},
 			"verbatim_elevation": {"type" : "text"},
 			"minimum_elevation": {"type" : "integer"},
 			"maximum_elevation": {"type" : "integer"},
 			"department_name" :  {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields" : {
 					"untouched": {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					},
 					"shingles": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "my_shingle_analyzer"
-					},
-          "keyword": {
-            "type": "keyword"
-          }
+					}
 				}
 			},
 			"recorded_by" :  {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields" : {
 					"untouched": {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					},
 					"shingles": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "my_shingle_analyzer"
 					}
 				}
 			},
 			"habitat" :  {
-				"type": "text",
-				"index": "analyzed",
+				"type": "string",
+				"index": true,
 				"fields" : {
 					"untouched": {
-						"type": "text",
-						"index": "not_analyzed"
+						"type": "string",
+						"index": false
 					},
 					"exactWords": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "string_lowercase"
 					},
 					"spanish": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "spanish_search_analyzer"
 					},
 					"shingles": {
-						"type": "text",
+						"type": "string",
 						"analyzer": "my_shingle_analyzer"
 					}
 				}
@@ -382,192 +373,165 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"type": "object",
 				"properties": {
 					"phylum_name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"kingdom_name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"class_name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"order_name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"family_name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"genus_name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"species_name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"specific_epithet" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"infraspecific_epithet" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					}
 				}
@@ -577,154 +541,145 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"properties": {
 					"id": {"type" : "integer"},
 					"name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"description" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"address" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"city" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"website_url" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"logo_url" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"email" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"phone" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
@@ -736,236 +691,221 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"properties": {
 					"id": {"type" : "integer"},
 					"name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"title" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"description" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"intellectual_rights" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"citation" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"logo_url" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"publication_date": {
 						"type": "date",
-						"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY"
+						"format": "YYYY-MM-dd||YYYY||YYYY-MM||dd/MM/YYYY||MM/YYYY||YYYY||date_hour_minute_second_millis||date_time"
 					},
 					"gbif_package_id" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"alternate_identifier" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
 					},
 					"language" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"keyword" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
           "keyword_thesaurus" :  {
-            "type": "text",
-            "index": "analyzed",
+            "type": "string",
+            "index": true,
             "fields" : {
               "untouched": {
-                "type": "text",
-                "index": "not_analyzed"
+                "type": "string",
+                "index": false
               },
               "exactWords": {
-                "type": "text",
+                "type": "string",
                 "analyzer": "string_lowercase"
               },
               "spanish": {
-                "type": "text",
+                "type": "string",
                 "analyzer": "spanish_search_analyzer"
-              },
-              "keyword": {
-                "type": "keyword"
               }
             }
           },
 					"hierarchy_level" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
@@ -976,24 +916,21 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"type": "object",
 				"properties": {
 					"code" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					}
 				}
@@ -1002,61 +939,55 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"type": "object",
 				"properties": {
 					"id" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"code" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					},
 					"name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
@@ -1067,19 +998,19 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"type": "object",
 				"properties": {
 					"number" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
 							}
 						}
@@ -1090,24 +1021,21 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"type": "object",
 				"properties": {
 					"name" :  {
-						"type": "text",
-						"index": "analyzed",
+						"type": "string",
+						"index": true,
 						"fields" : {
 							"untouched": {
-								"type": "text",
-								"index": "not_analyzed"
+								"type": "string",
+								"index": false
 							},
 							"exactWords": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "string_lowercase"
 							},
 							"spanish": {
-								"type": "text",
+								"type": "string",
 								"analyzer": "spanish_search_analyzer"
-							},
-              "keyword": {
-                "type": "keyword"
-              }
+							}
 						}
 					}
 				}
