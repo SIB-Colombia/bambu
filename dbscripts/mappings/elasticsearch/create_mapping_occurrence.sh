@@ -97,11 +97,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
     "properties": {
       "id": {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields" : {
 					"untouched" : {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -111,11 +111,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"dwca_id":  {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields": {
 					"untouched" : {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -129,11 +129,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"sourcefileid":  {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields": {
 					"untouched" : {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -147,11 +147,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"occurrenceid":  {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields": {
 					"untouched" : {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -165,11 +165,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"canonical":  {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields": {
 					"untouched" : {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -183,11 +183,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"taxon_rank":  {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields": {
 					"untouched" : {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -204,11 +204,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"country_name": {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields" : {
 					"untouched": {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -226,11 +226,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"county_name": {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields" : {
 					"untouched": {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -248,11 +248,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"locality" :  {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields" : {
 					"untouched": {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -305,11 +305,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			"maximum_elevation": {"type" : "integer"},
 			"department_name" :  {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields" : {
 					"untouched": {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -327,11 +327,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"recorded_by" :  {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields" : {
 					"untouched": {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -349,11 +349,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 			},
 			"habitat" :  {
 				"type": "string",
-				"index": true,
+				"index": "analyzed",
 				"fields" : {
 					"untouched": {
 						"type": "string",
-						"index": false
+						"index": "not_analyzed"
 					},
 					"exactWords": {
 						"type": "string",
@@ -374,11 +374,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"properties": {
 					"phylum_name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -392,11 +392,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"kingdom_name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -410,11 +410,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"class_name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -428,11 +428,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"order_name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -446,11 +446,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"family_name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -464,11 +464,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"genus_name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -482,11 +482,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"species_name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -500,11 +500,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"specific_epithet" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -518,11 +518,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"infraspecific_epithet" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -542,11 +542,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					"id": {"type" : "integer"},
 					"name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -560,11 +560,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"description" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -578,11 +578,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"address" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -596,11 +596,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"city" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -614,11 +614,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"website_url" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -632,11 +632,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"logo_url" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -650,11 +650,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"email" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -668,11 +668,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"phone" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -692,11 +692,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					"id": {"type" : "integer"},
 					"name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -710,11 +710,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"title" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -728,11 +728,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"description" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -746,11 +746,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"intellectual_rights" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -764,11 +764,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"citation" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -782,11 +782,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"logo_url" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -804,11 +804,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"gbif_package_id" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -822,11 +822,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"alternate_identifier" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -840,11 +840,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"language" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -858,11 +858,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"keyword" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -876,11 +876,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
           "keyword_thesaurus" :  {
             "type": "string",
-            "index": true,
+            "index": "analyzed",
             "fields" : {
               "untouched": {
                 "type": "string",
-                "index": false
+                "index": "not_analyzed"
               },
               "exactWords": {
                 "type": "string",
@@ -894,11 +894,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
           },
 					"hierarchy_level" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -917,11 +917,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"properties": {
 					"code" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -940,11 +940,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"properties": {
 					"id" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -958,11 +958,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"code" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -976,11 +976,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 					},
 					"name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -999,11 +999,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"properties": {
 					"number" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
@@ -1022,11 +1022,11 @@ curl -XPUT "http://$ESDBHOST:9200/sibdataportal/_mapping/occurrence" -d '
 				"properties": {
 					"name" :  {
 						"type": "string",
-						"index": true,
+						"index": "analyzed",
 						"fields" : {
 							"untouched": {
 								"type": "string",
-								"index": false
+								"index": "not_analyzed"
 							},
 							"exactWords": {
 								"type": "string",
