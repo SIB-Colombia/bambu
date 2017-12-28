@@ -1,7 +1,7 @@
 {
   database: {
     elasticSearch: {
-      url: ['localhost:9200']
+      url: ['elasticsearch:9200']
     }
   }
 }

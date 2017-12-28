@@ -1,3 +1,6 @@
+import SwaggerExpress from 'swagger-express-mw';
+import swaggerUiMiddleware from 'swagger-ui-middleware';
+
 import http from 'http';
 import express from 'express';
 import cors from 'cors';
@@ -8,8 +11,6 @@ import middleware from './middleware';
 // import api from './api';
 import { config } from '../config/application-config';
 import { logger } from './log';
-import SwaggerExpress from 'swagger-express-mw';
-import swaggerUiMiddleware from 'swagger-ui-middleware';
 
 const app = express();
 app.use(compression());

@@ -1,11 +1,15 @@
 {
   "extends": "airbnb",
   "parserOptions": {
-    "ecmaVersion": 7,
+    "ecmaVersion": 8,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "impliedStrict": true
     }
+  },
+  "env": {
+    "node": true
   },
   "rules": {
     "comma-dangle": ["error", "never"]

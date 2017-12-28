@@ -7,8 +7,7 @@ import { config } from '../../config/application-config';
 // const debug = require('debug')('dataportal-api:occurrences');
 
 const client = new elasticsearch.Client({
-  hosts: config.get('database.elasticSearch.url'),
-  log: 'trace'
+  hosts: config.get('database.elasticSearch.url')
 });
 
 /*
